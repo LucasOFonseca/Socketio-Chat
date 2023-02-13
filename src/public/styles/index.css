@@ -1,0 +1,144 @@
+body {
+  background-color: #eeeeee;
+}
+
+#chat {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  margin-bottom: 106px;
+}
+
+.new-user {
+  width: 100% !important;
+  max-width: unset !important;
+  background-color: #aad9a4 !important;
+  text-align: center;
+  animation: userNotification 0.25s ease-in-out !important;
+}
+
+.disconnected {
+  width: 100% !important;
+  max-width: unset !important;
+  background-color: #d9a4a4 !important;
+  text-align: center;
+  animation: userNotification 0.25s ease-in-out !important;
+}
+
+.message {
+  position: relative;
+  width: max-content;
+  max-width: 85%;
+  min-width: 150px;
+  padding: 8px;
+  animation: newMessage 0.25s ease-in-out;
+}
+
+.message + .message {
+  margin-top: 16px;
+}
+
+.other-message {
+  background-color: #fff;
+  margin-left: 12px;
+  border-top-left-radius: 0 !important;
+}
+
+.other-message::before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-bottom: 12px solid #fff;
+  position: absolute;
+  top: 0;
+  left: -12px;
+  rotate: -90deg;
+}
+
+.grouped-message {
+  margin-top: 4px !important;
+  border-top-left-radius: var(--bs-border-radius-sm) !important;
+}
+
+.grouped-message p:first-child {
+  display: none;
+}
+
+.other-message + .grouped-message.other-message::before {
+  display: none;
+}
+
+.self-message {
+  align-self: end;
+  background-color: #a7d2dd;
+  margin-right: 12px;
+  border-top-right-radius: 0 !important;
+}
+
+.self-message::before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-right: 12px solid transparent;
+  border-bottom: 12px solid #a7d2dd;
+  position: absolute;
+  top: 0;
+  right: -12px;
+  rotate: 90deg;
+}
+
+.self-message + .self-message {
+  margin-top: 4px;
+  border-top-right-radius: var(--bs-border-radius-sm) !important;
+}
+
+.self-message + .self-message::before {
+  display: none;
+}
+
+.control-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 32px;
+  background-color: #fff;
+}
+
+#set-user-container {
+  flex-direction: column;
+  gap: 8px;
+}
+
+#set-user-container div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+@keyframes newMessage {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes userNotification {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
