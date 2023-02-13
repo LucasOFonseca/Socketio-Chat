@@ -1,4 +1,4 @@
-<h1 style="text-align: center">Simple Chat</h1>
+<h1 align="center">Simple Chat</h1>
 
 <img src="./.github/demonstration.gif" alt="demonstration gif"/>
 
